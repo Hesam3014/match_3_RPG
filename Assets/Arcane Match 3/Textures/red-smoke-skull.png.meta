@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      red-smoke-skull_0: 6697488987922523786
+      red-smoke-skull_1: 7170157886774753465
+      red-smoke-skull_2: -4542975833089721658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

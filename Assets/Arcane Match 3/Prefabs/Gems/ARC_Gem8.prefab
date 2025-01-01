@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7927807542344970783}
   - component: {fileID: 7927807542344970777}
   m_Layer: 0
-  m_Name: GemBlue
+  m_Name: ARC_Gem8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 1890678711
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2975345765962850001, guid: 405a4a065d5509b4bb27d248135d5fb3, type: 3}
-  m_Color: {r: 0.96862745, g: 0.9882353, b: 1, a: 1}
+  m_Sprite: {fileID: -2558372629458050616, guid: f82862947efd7b340a000a9fe6044069, type: 3}
+  m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.91333336, y: 0.9066667}
+  m_Size: {x: 0.9142857, y: 0.9142857}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e567904f8f33d7249b2d211e57521d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GemType: 0
+  GemType: 8
   MatchEffectPrefabs:
   - {fileID: 8519149161829645249, guid: f4f22f7bed44e2f4abeb41e8a2af3af6, type: 3}
-  UISprite: {fileID: 2975345765962850001, guid: 405a4a065d5509b4bb27d248135d5fb3, type: 3}
+  UISprite: {fileID: -2558372629458050616, guid: f82862947efd7b340a000a9fe6044069, type: 3}
   SpeedMultiplier: 1

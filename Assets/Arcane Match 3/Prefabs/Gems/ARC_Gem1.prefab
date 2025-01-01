@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7927807542344970783}
   - component: {fileID: 7927807542344970777}
   m_Layer: 0
-  m_Name: GemBlue
+  m_Name: ARC_Gem1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 1890678711
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2975345765962850001, guid: 405a4a065d5509b4bb27d248135d5fb3, type: 3}
+  m_Sprite: {fileID: -8496407048491065246, guid: 661301d06d13c2b4581c62895d986a02, type: 3}
   m_Color: {r: 0.96862745, g: 0.9882353, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,5 +103,5 @@ MonoBehaviour:
   GemType: 0
   MatchEffectPrefabs:
   - {fileID: 8519149161829645249, guid: f4f22f7bed44e2f4abeb41e8a2af3af6, type: 3}
-  UISprite: {fileID: 2975345765962850001, guid: 405a4a065d5509b4bb27d248135d5fb3, type: 3}
+  UISprite: {fileID: -8496407048491065246, guid: 661301d06d13c2b4581c62895d986a02, type: 3}
   SpeedMultiplier: 1

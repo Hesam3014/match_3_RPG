@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 19dcc95dcbf0b254691f64d47bb744d0
+guid: 455db3cdf7fab4645a54041db2871deb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2921232929769943250
-    second: text Boxes_0
+      213: 2578584035484124669
+    second: dialog_box-removebg-preview_0
+  - first:
+      213: 8450202449442333597
+    second: dialog_box-removebg-preview_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: text Boxes_0
+      name: dialog_box-removebg-preview_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 611
-        height: 612
+        x: 6
+        y: 1
+        width: 140
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d07c1d4fdd4a8820800000000000000
-      internalID: 2921232929769943250
+      spriteID: df54682b488f8c320800000000000000
+      internalID: 2578584035484124669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dialog_box-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 10
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d93652f4b56254570800000000000000
+      internalID: 8450202449442333597
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      text Boxes_0: 2921232929769943250
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

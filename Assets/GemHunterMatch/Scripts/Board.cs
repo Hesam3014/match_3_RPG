@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using Match3;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,6 +15,8 @@ namespace Match3
     [DefaultExecutionOrder(-9999)]
     public class Board : MonoBehaviour
     {
+
+        
         //Board hold a list of BoardAction that get ticked on its Update. Useful for Bonus to add timed effects and the like.
         public interface IBoardAction
         {
@@ -43,7 +46,7 @@ namespace Match3
         private bool m_BoardWasInit = false;
         private bool m_InputEnabled = true;
         private bool m_FinalStretch = false;//set when either reach goal or no move left. When board settle, trigger the end
-        
+
         private Grid m_Grid;
         private BoundsInt m_BoundsInt;
 
@@ -77,7 +80,7 @@ namespace Match3
         private bool m_SwipeQueued;
         private Vector3Int m_StartSwipe;
         private Vector3Int m_EndSwipe;
-        //private bool m_IsHoldingTouch;
+        private bool m_IsHoldingTouch;
 
         private float m_LastClickTime = 0.0f;
 
@@ -125,7 +128,7 @@ namespace Match3
         {
             //order of deletion when quitting the game can make the manager be destroyed first so we make sure it's not
             //shutting down, otherwise in editor, calling GameManager.Instance would create a new game manager.
-            if(!GameManager.IsShuttingDown()) GameManager.Instance.PoolSystem.Clean();
+            if (!GameManager.IsShuttingDown()) GameManager.Instance.PoolSystem.Clean();
         }
 
         void GetReference()
@@ -165,13 +168,13 @@ namespace Match3
             {
                 UIHandler.Instance.RegisterGemToDebug(bonus);
             }
-        
+
             foreach (var gem in GameManager.Instance.Board.ExistingGems)
             {
                 UIHandler.Instance.RegisterGemToDebug(gem);
             }
 #endif
-            
+
             //fill a lookup of gem type to gem
             m_GemLookup = new Dictionary<int, Gem>();
             foreach (var gem in ExistingGems)
@@ -181,10 +184,10 @@ namespace Match3
 
             GenerateBoard();
             FindAllPossibleMatch();
-        
+
             m_HintIndicator = Instantiate(GameManager.Instance.Settings.VisualSettings.HintPrefab);
             m_HintIndicator.SetActive(false);
-        
+
             m_BoardWasInit = true;
 
             if (GemHoldPrefab != null)
@@ -221,7 +224,7 @@ namespace Match3
                 s_Instance.GetReference();
             }
 
-            if(!s_Instance.CellContent.ContainsKey(cellPosition))
+            if (!s_Instance.CellContent.ContainsKey(cellPosition))
                 s_Instance.CellContent.Add(cellPosition, new BoardCell());
 
             if (startingGem != null)
@@ -264,14 +267,14 @@ namespace Match3
 
         public static void UnregisterDeletedCallback(Vector3Int cellPosition, System.Action callback)
         {
-            if(!s_Instance.m_CellsCallbacks.ContainsKey(cellPosition))
+            if (!s_Instance.m_CellsCallbacks.ContainsKey(cellPosition))
                 return;
-        
+
             s_Instance.m_CellsCallbacks[cellPosition] -= callback;
             if (s_Instance.m_CellsCallbacks[cellPosition] == null)
                 s_Instance.m_CellsCallbacks.Remove(cellPosition);
         }
-        
+
         public static void RegisterMatchedCallback(Vector3Int cellPosition, System.Action callback)
         {
             if (!s_Instance.m_MatchedCallback.ContainsKey(cellPosition))
@@ -286,9 +289,9 @@ namespace Match3
 
         public static void UnregisterMatchedCallback(Vector3Int cellPosition, System.Action callback)
         {
-            if(!s_Instance.m_MatchedCallback.ContainsKey(cellPosition))
+            if (!s_Instance.m_MatchedCallback.ContainsKey(cellPosition))
                 return;
-        
+
             s_Instance.m_MatchedCallback[cellPosition] -= callback;
             if (s_Instance.m_MatchedCallback[cellPosition] == null)
                 s_Instance.m_MatchedCallback.Remove(cellPosition);
@@ -314,7 +317,7 @@ namespace Match3
 
             m_BoundsInt.xMin = listOfCells[0].x;
             m_BoundsInt.xMax = m_BoundsInt.xMin;
-        
+
             m_BoundsInt.yMin = listOfCells[0].y;
             m_BoundsInt.yMax = m_BoundsInt.yMin;
 
@@ -336,10 +339,10 @@ namespace Match3
                 for (int x = m_BoundsInt.xMin; x <= m_BoundsInt.xMax; ++x)
                 {
                     var idx = new Vector3Int(x, y, 0);
-                
-                    if(!CellContent.TryGetValue(idx, out var current) || current.ContainingGem != null)
+
+                    if (!CellContent.TryGetValue(idx, out var current) || current.ContainingGem != null)
                         continue;
-                
+
                     var availableGems = m_GemLookup.Keys.ToList();
 
                     int leftGemType = -1;
@@ -352,7 +355,7 @@ namespace Match3
                         leftContent.ContainingGem != null)
                     {
                         leftGemType = leftContent.ContainingGem.GemType;
-                    
+
                         if (CellContent.TryGetValue(idx + new Vector3Int(-2, 0, 0), out var leftLeftContent) &&
                             leftLeftContent.ContainingGem != null && leftGemType == leftLeftContent.ContainingGem.GemType)
                         {
@@ -360,13 +363,13 @@ namespace Match3
                             availableGems.Remove(leftGemType);
                         }
                     }
-                
+
                     //check if there is two gem of the same type below
                     if (CellContent.TryGetValue(idx + new Vector3Int(0, -1, 0), out var bottomContent) &&
                         bottomContent.ContainingGem != null)
                     {
                         bottomGemType = bottomContent.ContainingGem.GemType;
-                        
+
                         if (CellContent.TryGetValue(idx + new Vector3Int(0, -2, 0), out var bottomBottomContent) &&
                             bottomBottomContent.ContainingGem != null && bottomGemType == bottomBottomContent.ContainingGem.GemType)
                         {
@@ -386,10 +389,10 @@ namespace Match3
                             }
                         }
                     }
-                    
+
                     //as we fill left to right and bottom to top, we could only test left and bottom, but as we can have
                     //manually placed gems, we still need to test in the other 2 direction to make sure
-                    
+
                     //check right
                     if (CellContent.TryGetValue(idx + new Vector3Int(1, 0, 0), out var rightContent) &&
                         rightContent.ContainingGem != null)
@@ -401,7 +404,7 @@ namespace Match3
                         {
                             availableGems.Remove(rightGemType);
                         }
-                    
+
                         if (CellContent.TryGetValue(idx + new Vector3Int(2, 0, 0), out var rightRightContent) &&
                             rightRightContent.ContainingGem != null && rightGemType == rightRightContent.ContainingGem.GemType)
                         {
@@ -419,7 +422,7 @@ namespace Match3
                             }
                         }
                     }
-                    
+
                     //check up
                     if (CellContent.TryGetValue(idx + new Vector3Int(0, 1, 0), out var topContent) &&
                         topContent.ContainingGem != null)
@@ -431,7 +434,7 @@ namespace Match3
                         {
                             availableGems.Remove(topGemType);
                         }
-                    
+
                         if (CellContent.TryGetValue(idx + new Vector3Int(0, 1, 0), out var topTopContent) &&
                             topTopContent.ContainingGem != null && topGemType == topTopContent.ContainingGem.GemType)
                         {
@@ -448,7 +451,7 @@ namespace Match3
                                 availableGems.Remove(topGemType);
                             }
                         }
-                        
+
                         //left and top gem are the same, check the top left to avoid creating a square
                         if (topGemType != -1 && topGemType == leftGemType)
                         {
@@ -459,7 +462,7 @@ namespace Match3
                             }
                         }
                     }
-                    
+
 
                     var chosenGem = availableGems[Random.Range(0, availableGems.Count)];
                     NewGemAt(idx, m_GemLookup[chosenGem]);
@@ -469,9 +472,9 @@ namespace Match3
 
         private void Update()
         {
-            if(!m_BoardWasInit)
+            if (!m_BoardWasInit)
                 return;
-            
+
             GameManager.Instance.PoolSystem.Update();
 
             for (int i = 0; i < m_BoardActions.Count; ++i)
@@ -482,7 +485,7 @@ namespace Match3
                     i--;
                 }
             }
-        
+
             CheckInput();
 
             if (m_SwapStage != SwapStage.None)
@@ -499,7 +502,7 @@ namespace Match3
             if (m_TickingCells.Count > 0)
             {
                 MoveGems();
-                
+
                 //to avoid sound clash we make sure we only play a falling sound if none are already playing
                 if (m_TickingCells.Count == 0 && (m_FallingSoundSource == null || !m_FallingSoundSource.isPlaying))
                 {
@@ -509,31 +512,31 @@ namespace Match3
                 incrementHintTimer = false;
                 m_BoardChanged = true;
             }
-            
+
             if (m_CellToMatchCheck.Count > 0)
             {
                 DoMatchCheck();
-                
+
                 incrementHintTimer = false;
                 m_BoardChanged = true;
             }
-            
+
             if (m_TickingMatch.Count > 0)
             {
                 MatchTicking();
-                
+
                 incrementHintTimer = false;
                 m_BoardChanged = true;
-            } 
-            
+            }
+
             if (m_EmptyCells.Count > 0)
             {
                 EmptyCheck();
-                
+
                 incrementHintTimer = false;
                 m_BoardChanged = true;
-            } 
-            
+            }
+
             if (m_SwipeQueued)
             {
                 CellContent[m_StartSwipe].IncomingGem = CellContent[m_EndSwipe].ContainingGem;
@@ -544,7 +547,7 @@ namespace Match3
 
                 m_SwapStage = SwapStage.Forward;
                 m_SwappingCells = (m_StartSwipe, m_EndSwipe);
-                
+
                 GameManager.Instance.PlaySFX(GameManager.Instance.Settings.SoundSettings.SwipSound);
 
                 m_SwipeQueued = false;
@@ -557,7 +560,7 @@ namespace Match3
                 m_NewTickingCells.Clear();
                 incrementHintTimer = false;
             }
-            
+
             if (incrementHintTimer)
             {
                 //nothing can happen anymore, if we were in the last stretch trigger the end
@@ -568,14 +571,14 @@ namespace Match3
                     UIHandler.Instance.ShowEnd();
                     return;
                 }
-                
+
                 //Nothing happened this frame, but the board was changed since last possible match check, so need to refresh
                 if (m_BoardChanged)
                 {
                     FindAllPossibleMatch();
                     m_BoardChanged = false;
                 }
-            
+
                 var match = m_PossibleSwaps[m_PickedSwap];
                 if (m_HintIndicator.activeSelf)
                 {
@@ -625,14 +628,14 @@ namespace Match3
 
                 var currentCell = CellContent[cellIdx];
                 var targetPosition = m_Grid.GetCellCenterWorld(cellIdx);
-                
+
                 if (currentCell.IncomingGem != null && currentCell.ContainingGem != null)
                 {
                     Debug.LogError(
                         $"A ticking cell at {cellIdx} have incoming gems {currentCell.IncomingGem} containing gem {currentCell.ContainingGem}");
                     continue;
                 }
-                
+
                 //update either position or state.
                 if (currentCell.IncomingGem?.CurrentState == Gem.State.Falling)
                 {
@@ -641,7 +644,7 @@ namespace Match3
 
                     var maxDistance = m_VisualSettingReference.FallAccelerationCurve.Evaluate(gem.FallTime) *
                                       Time.deltaTime * m_VisualSettingReference.FallSpeed * gem.SpeedMultiplier;
-                    
+
                     gem.transform.position = Vector3.MoveTowards(gem.transform.position, targetPosition,
                         maxDistance);
 
@@ -653,7 +656,7 @@ namespace Match3
                         currentCell.IncomingGem = null;
                         currentCell.ContainingGem = gem;
                         gem.MoveTo(cellIdx);
-                        
+
                         //reached target position, now check if continue falling or finished its fall.
                         if (m_EmptyCells.Contains(cellIdx + Vector3Int.down) && CellContent.TryGetValue(cellIdx + Vector3Int.down, out var belowCell))
                         {
@@ -665,7 +668,7 @@ namespace Match3
 
                             var target = cellIdx + Vector3Int.down;
                             m_NewTickingCells.Add(target);
-                            
+
                             m_EmptyCells.Remove(target);
                             m_EmptyCells.Add(cellIdx);
 
@@ -677,7 +680,7 @@ namespace Match3
                             }
                         }
                         else if ((!CellContent.TryGetValue(cellIdx + Vector3Int.left, out var leftCell) ||
-                                  leftCell.BlockFall) && 
+                                  leftCell.BlockFall) &&
                                  m_EmptyCells.Contains(cellIdx + Vector3Int.down + Vector3Int.left) &&
                                  CellContent.TryGetValue(cellIdx + Vector3Int.down + Vector3Int.left, out var belowLeftCell))
                         {
@@ -689,7 +692,7 @@ namespace Match3
 
                             var target = cellIdx + Vector3Int.down + Vector3Int.left;
                             m_NewTickingCells.Add(target);
-                            
+
                             //if the empty cell was part of the empty cell list, we need to remove it it's not empty anymore
                             m_EmptyCells.Remove(target);
                             m_EmptyCells.Add(cellIdx);
@@ -715,7 +718,7 @@ namespace Match3
 
                             var target = cellIdx + Vector3Int.down + Vector3Int.right;
                             m_NewTickingCells.Add(target);
-                            
+
                             //if the empty cell was part of the empty cell list, we need to remove it it's not empty anymore
                             m_EmptyCells.Remove(target);
                             m_EmptyCells.Add(cellIdx);
@@ -743,7 +746,7 @@ namespace Match3
 
                     float maxTime = m_VisualSettingReference.BounceCurve
                         .keys[m_VisualSettingReference.BounceCurve.length - 1].time;
-                    
+
                     if (gem.FallTime >= maxTime)
                     {
                         gem.transform.position = center;
@@ -762,7 +765,7 @@ namespace Match3
                             new Vector3(1, m_VisualSettingReference.SquishCurve.Evaluate(gem.FallTime), 1);
                     }
                 }
-                else if(currentCell.ContainingGem?.CurrentState == Gem.State.Still)
+                else if (currentCell.ContainingGem?.CurrentState == Gem.State.Still)
                 {
                     //a ticking cells should only be falling or bouncing, if neither of those, remove it 
                     m_TickingCells.RemoveAt(i);
@@ -783,8 +786,8 @@ namespace Match3
 
                 const float deletionSpeed = 1.0f / 0.3f;
                 match.DeletionTimer += Time.deltaTime * deletionSpeed;
-                
-                for(int j = 0; j < match.MatchingGem.Count; j++)
+
+                for (int j = 0; j < match.MatchingGem.Count; j++)
                 {
                     var gemIdx = match.MatchingGem[j];
                     var gem = CellContent[gemIdx].ContainingGem;
@@ -801,9 +804,9 @@ namespace Match3
                         //we stop it bouncing as it is getting destroyed
                         //We check both current and new ticking cells, as it could be the first frame where it started
                         //bouncing so it will be in the new ticking cells NOT in the ticking cell list yet.
-                        if(m_TickingCells.Contains(gemIdx)) m_TickingCells.Remove(gemIdx);
-                        if(m_NewTickingCells.Contains(gemIdx)) m_NewTickingCells.Remove(gemIdx);
-                        
+                        if (m_TickingCells.Contains(gemIdx)) m_TickingCells.Remove(gemIdx);
+                        if (m_NewTickingCells.Contains(gemIdx)) m_NewTickingCells.Remove(gemIdx);
+
                         gem.transform.position = m_Grid.GetCellCenterWorld(gemIdx);
                         gem.transform.localScale = Vector3.one;
                         gem.StopBouncing();
@@ -814,7 +817,7 @@ namespace Match3
                     {
                         Destroy(CellContent[gemIdx].ContainingGem.gameObject);
                         CellContent[gemIdx].ContainingGem = null;
-                    
+
                         if (match.ForcedDeletion && CellContent[gemIdx].Obstacle != null)
                         {
                             CellContent[gemIdx].Obstacle.Clear();
@@ -825,7 +828,7 @@ namespace Match3
                         {
                             clbk.Invoke();
                         }
-                    
+
                         match.MatchingGem.RemoveAt(j);
                         j--;
 
@@ -837,7 +840,7 @@ namespace Match3
                             GameManager.Instance.PoolSystem.PlayInstanceAt(GameManager.Instance.Settings.VisualSettings.CoinVFX,
                                 gem.transform.position);
                         }
-                    
+
                         if (match.SpawnedBonus != null && match.OriginPoint == gemIdx)
                         {
                             NewGemAt(match.OriginPoint, match.SpawnedBonus);
@@ -851,7 +854,7 @@ namespace Match3
                         if (gem.CurrentState != Gem.State.Disappearing)
                         {
                             LevelData.Instance.Matched(gem);
-                            
+
                             foreach (var matchEffectPrefab in gem.MatchEffectPrefabs)
                             {
                                 GameManager.Instance.PoolSystem.PlayInstanceAt(matchEffectPrefab, m_Grid.GetCellCenterWorld(gem.CurrentIndex));
@@ -862,10 +865,10 @@ namespace Match3
                             gem.Destroyed();
                         }
                     }
-                    else if(gem.CurrentState != Gem.State.Disappearing)
+                    else if (gem.CurrentState != Gem.State.Disappearing)
                     {
                         LevelData.Instance.Matched(gem);
-                        
+
                         foreach (var matchEffectPrefab in gem.MatchEffectPrefabs)
                         {
                             GameManager.Instance.PoolSystem.PlayInstanceAt(matchEffectPrefab, m_Grid.GetCellCenterWorld(gem.CurrentIndex));
@@ -887,7 +890,7 @@ namespace Match3
 
         public void DestroyGem(Vector3Int cell, bool forcedDeletion = false)
         {
-            if(CellContent[cell].ContainingGem?.CurrentMatch != null)
+            if (CellContent[cell].ContainingGem?.CurrentMatch != null)
                 return;
 
             var match = new Match()
@@ -900,7 +903,7 @@ namespace Match3
             };
 
             CellContent[cell].ContainingGem.CurrentMatch = match;
-        
+
             m_TickingMatch.Add(match);
         }
 
@@ -929,7 +932,7 @@ namespace Match3
                 OriginPoint = newCell,
                 SpawnedBonus = null
             };
-        
+
             m_TickingMatch.Add(newMatch);
 
             return newMatch;
@@ -939,7 +942,7 @@ namespace Match3
         {
             if (m_FreezeMoveLock > 0)
                 return;
-            
+
             //go over empty cells
             for (int i = 0; i < m_EmptyCells.Count; ++i)
             {
@@ -1060,7 +1063,7 @@ namespace Match3
             var gem = Instantiate(gemPrefab, m_Grid.GetCellCenterWorld(cell), Quaternion.identity);
             CellContent[cell].ContainingGem = gem;
             gem.Init(cell);
-        
+
             return gem;
         }
 
@@ -1068,9 +1071,9 @@ namespace Match3
         {
             var gem = Instantiate(ExistingGems[Random.Range(0, ExistingGems.Length)], m_Grid.GetCellCenterWorld(cell + Vector3Int.up), Quaternion.identity);
             CellContent[cell].IncomingGem = gem;
-        
+
             gem.StartMoveTimer();
-            gem.SpeedMultiplier = 1.0f; 
+            gem.SpeedMultiplier = 1.0f;
             m_NewTickingCells.Add(cell);
 
             if (m_EmptyCells.Contains(cell)) m_EmptyCells.Remove(cell);
@@ -1097,10 +1100,10 @@ namespace Match3
                     //temporaly unlock as we need to in order to delete the gems properly if they matched
                     CellContent[m_SwappingCells.Item1].Locked = false;
                     CellContent[m_SwappingCells.Item2].Locked = false;
-                    
+
                     CellContent[m_SwappingCells.Item1].ContainingGem = CellContent[m_SwappingCells.Item1].IncomingGem;
                     CellContent[m_SwappingCells.Item2].ContainingGem = CellContent[m_SwappingCells.Item2].IncomingGem;
-                
+
                     CellContent[m_SwappingCells.Item1].ContainingGem.MoveTo(m_SwappingCells.Item1);
                     CellContent[m_SwappingCells.Item2].ContainingGem.MoveTo(m_SwappingCells.Item2);
 
@@ -1124,7 +1127,7 @@ namespace Match3
                     }
                     else
                     {
-                        secondCheck =  DoCheck(m_SwappingCells.Item2);
+                        secondCheck = DoCheck(m_SwappingCells.Item2);
                     }
 
                     if (firstCheck || secondCheck)
@@ -1144,7 +1147,7 @@ namespace Match3
                             CellContent[m_SwappingCells.Item2].IncomingGem, CellContent[m_SwappingCells.Item1].IncomingGem);
                         (m_SwappingCells.Item1, m_SwappingCells.Item2) = (m_SwappingCells.Item2, m_SwappingCells.Item1);
                         m_SwapStage = SwapStage.Return;
-                        
+
                         //relock the cells as they are swapping bacl
                         CellContent[m_SwappingCells.Item1].Locked = true;
                         CellContent[m_SwappingCells.Item2].Locked = true;
@@ -1154,13 +1157,13 @@ namespace Match3
                 {
                     CellContent[m_SwappingCells.Item1].ContainingGem = CellContent[m_SwappingCells.Item1].IncomingGem;
                     CellContent[m_SwappingCells.Item2].ContainingGem = CellContent[m_SwappingCells.Item2].IncomingGem;
-                
+
                     CellContent[m_SwappingCells.Item1].ContainingGem.MoveTo(m_SwappingCells.Item1);
                     CellContent[m_SwappingCells.Item2].ContainingGem.MoveTo(m_SwappingCells.Item2);
 
                     CellContent[m_SwappingCells.Item1].IncomingGem = null;
                     CellContent[m_SwappingCells.Item2].IncomingGem = null;
-                    
+
                     //they are not locked anymore and can resume falling/being deleted
                     CellContent[m_SwappingCells.Item1].Locked = false;
                     CellContent[m_SwappingCells.Item2].Locked = false;
@@ -1279,28 +1282,43 @@ namespace Match3
 
             if (createMatch)
             {
+                Debug.Log("test");
+ 
                 var finalMatch = CreateCustomMatch(startCell);
                 finalMatch.SpawnedBonus = matchedBonusGem.Count == 0 ? null : matchedBonusGem[Random.Range(0, matchedBonusGem.Count)];
-
+                List<Vector3> matchedPositions = new List<Vector3>();
                 foreach (var cell in lineList)
                 {
                     if (m_MatchedCallback.TryGetValue(cell, out var clbk))
                         clbk.Invoke();
 
-                    if(CellContent[cell].CanDelete())
+                    if (CellContent[cell].CanDelete())
+                    {
                         finalMatch.AddGem(CellContent[cell].ContainingGem);
+                        matchedPositions.Add(CellContent[cell].ContainingGem.transform.position);
+                    }
                 }
 
                 foreach (var cell in temporaryShapeMatch)
                 {
                     if (m_MatchedCallback.TryGetValue(cell, out var clbk))
                         clbk.Invoke();
-                    
-                    if(CellContent[cell].CanDelete())
-                        finalMatch.AddGem(CellContent[cell].ContainingGem);
-                }
 
+                    if (CellContent[cell].CanDelete())
+                    {
+                        finalMatch.AddGem(CellContent[cell].ContainingGem);
+
+                        matchedPositions.Add(CellContent[cell].ContainingGem.transform.position);
+                    }
+                }
+                foreach (var pos in matchedPositions)
+                {
+                    Debug.Log($"Matched Position: {pos}");
+                    
+                }
                 UIHandler.Instance.TriggerCharacterAnimation(UIHandler.CharacterAnimation.Match);
+                EnemyManager.instance.DamageEnemy(matchedPositions[0]);
+
             }
 
             return true;
@@ -1310,21 +1328,21 @@ namespace Match3
         {
             if (!m_InputEnabled)
                 return;
-            
+
             var mainCam = Camera.main;
-        
+
             var pressedThisFrame = GameManager.Instance.ClickAction.WasPressedThisFrame();
             var releasedThisFrame = GameManager.Instance.ClickAction.WasReleasedThisFrame();
-        
+
             var clickPos = GameManager.Instance.ClickPosition.ReadValue<Vector2>();
             var worldPos = mainCam.ScreenToWorldPoint(clickPos);
             worldPos.z = 0;
-            
+
             if (m_HoldTrailInstance.gameObject.activeSelf)
             {
                 m_HoldTrailInstance.transform.position = worldPos;
             }
-        
+
             if (pressedThisFrame)
             {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
@@ -1344,7 +1362,7 @@ namespace Match3
                             NewGemAt(clickedCell, UIHandler.Instance.SelectedDebugGem);
                         }
                     }
-                
+
                     return;
                 }
 #endif
@@ -1359,9 +1377,9 @@ namespace Match3
                         return;
                     }
                 }
-            
+
                 m_StartClickPosition = clickPos;
-                
+
                 var worldStart = mainCam.ScreenToWorldPoint(m_StartClickPosition);
                 var startCell = m_Grid.WorldToCell(worldStart);
 
@@ -1382,10 +1400,10 @@ namespace Match3
             }
             else if (releasedThisFrame)
             {
-                //m_IsHoldingTouch = false;
-                if(m_GemHoldVFXInstance != null) m_GemHoldVFXInstance.gameObject.SetActive(false);
-                if(m_HoldTrailInstance != null) m_HoldTrailInstance.gameObject.SetActive(false);
-                
+                m_IsHoldingTouch = false;
+                if (m_GemHoldVFXInstance != null) m_GemHoldVFXInstance.gameObject.SetActive(false);
+                if (m_HoldTrailInstance != null) m_HoldTrailInstance.gameObject.SetActive(false);
+
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
                 if (UIHandler.Instance.DebugMenuOpen)
                 {
@@ -1395,19 +1413,19 @@ namespace Match3
                 //early exit if we already have a swipe queued or in progress, only one can happen at once
                 if (m_SwipeQueued || m_SwapStage != SwapStage.None)
                     return;
-                
+
                 float clickDelta = Time.time - m_LastClickTime;
                 m_LastClickTime = Time.time;
 
                 var worldStart = mainCam.ScreenToWorldPoint(m_StartClickPosition);
                 var startCell = m_Grid.WorldToCell(worldStart);
                 startCell.z = 0;
-            
+
                 //if last than .3 second since last click, this is a double click, activate the gem if that is a gem.
                 if (clickDelta < 0.3f)
                 {
-                    if (CellContent.TryGetValue(startCell, out var content) 
-                        && content.ContainingGem != null 
+                    if (CellContent.TryGetValue(startCell, out var content)
+                        && content.ContainingGem != null
                         && content.ContainingGem.Usable
                         && content.ContainingGem.CurrentMatch == null)
                     {
@@ -1417,7 +1435,7 @@ namespace Match3
                 }
 
                 var endWorldPos = mainCam.ScreenToWorldPoint(clickPos);
-            
+
                 //we compute the swipe in world position as then a swipe of 1 is the distance between 2 cell
                 var swipe = endWorldPos - worldStart;
                 if (swipe.sqrMagnitude < 0.5f * 0.5f)
@@ -1426,14 +1444,14 @@ namespace Match3
                 }
 
                 //the starting cell isn't a valid cell, so we exit
-                if (!CellContent.TryGetValue(startCell, out var startCellContent) 
+                if (!CellContent.TryGetValue(startCell, out var startCellContent)
                     || !startCellContent.CanBeMoved)
                 {
                     return;
                 }
 
                 var endCell = startCell;
-            
+
                 if (Mathf.Abs(swipe.x) > Mathf.Abs(swipe.y))
                 {
                     if (swipe.x < 0)
@@ -1460,11 +1478,11 @@ namespace Match3
                 //the ending cell isn't a valid cell, exit
                 if (!CellContent.TryGetValue(endCell, out var endCellContent) || !endCellContent.CanBeMoved)
                     return;
-                
+
                 //both work so we lock them so they cannot be deleted or moved until the swap end
                 startCellContent.Locked = true;
                 endCellContent.Locked = true;
-                
+
                 //we make sure to remove those cell from the ticking cell if they are in (we swipped as it was falling)
 
                 m_SwipeQueued = true;
@@ -1481,9 +1499,10 @@ namespace Match3
         void FindAllPossibleMatch()
         {
             //TODO : instead of going over every gems just do it on moved gems for optimization
-        
+
             m_PossibleSwaps.Clear();
-        
+
+            List<Vector3Int> matchedPositions = new List<Vector3Int>();
             //we use a double loop instead of directly querying the cells, so we access them in increasing x then y coordinate
             //this allow to just have to test swapping upward then right, as down and left will have been tested by previous
             //gem already
@@ -1497,13 +1516,13 @@ namespace Match3
                     {
                         var topIdx = idx + Vector3Int.up;
                         var rightIdx = idx + Vector3Int.right;
-                    
+
                         if (CellContent.TryGetValue(topIdx, out var topCell) && topCell.CanBeMoved)
                         {
                             //swap the cell
                             (CellContent[idx].ContainingGem, CellContent[topIdx].ContainingGem) = (
                                 CellContent[topIdx].ContainingGem, CellContent[idx].ContainingGem);
-                        
+
                             if (DoCheck(topIdx, false))
                             {
                                 m_PossibleSwaps.Add(new PossibleSwap()
@@ -1521,18 +1540,18 @@ namespace Match3
                                     Direction = Vector3Int.down
                                 });
                             }
-                        
+
                             //swap back
                             (CellContent[idx].ContainingGem, CellContent[topIdx].ContainingGem) = (
                                 CellContent[topIdx].ContainingGem, CellContent[idx].ContainingGem);
                         }
-                    
+
                         if (CellContent.TryGetValue(rightIdx, out var rightCell) && rightCell.CanBeMoved)
                         {
                             //swap the cell
                             (CellContent[idx].ContainingGem, CellContent[rightIdx].ContainingGem) = (
                                 CellContent[rightIdx].ContainingGem, CellContent[idx].ContainingGem);
-                        
+
                             if (DoCheck(rightIdx, false))
                             {
                                 m_PossibleSwaps.Add(new PossibleSwap()
@@ -1550,7 +1569,7 @@ namespace Match3
                                     Direction = Vector3Int.left
                                 });
                             }
-                        
+
                             //swap back
                             (CellContent[idx].ContainingGem, CellContent[rightIdx].ContainingGem) = (
                                 CellContent[rightIdx].ContainingGem, CellContent[idx].ContainingGem);

@@ -17,9 +17,9 @@ public class Enemy : MonoBehaviour
     {
         GameManager.instance.Enemys.Add(this);
         slider.maxValue = Health;
-
+        /*
         // Attack 
-        AttackSlider.maxValue = AttackActive;
+        AttackSlider.maxValue = AttackActive;*/
     }
 
     public void Damage(int DamageValue)
@@ -32,17 +32,17 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             GameManager.instance.Enemys.Remove(this);
         }
-
+        /*
         // Attack
         Attacking += DamageValue;
         AttackSlider.value = Attacking;
-
+        
         if (Attacking >= AttackActive)
         {
             Attacking -= AttackActive;
             AttackSlider.value = Attacking;
             Attack();
-        }
+        }*/
     }
 
     public void Attack()

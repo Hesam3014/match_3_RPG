@@ -439,6 +439,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!1001 &5899088017058602465
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,6 +448,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2479788712427261666}
     m_Modifications:
+    - target: {fileID: 504573943912951336, guid: fa1a28deaea064248aef603a21a002f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 809629293478245050, guid: fa1a28deaea064248aef603a21a002f9, type: 3}
       propertyPath: m_Name
       value: UIDocument
@@ -490,6 +495,10 @@ PrefabInstance:
     - target: {fileID: 2956174047639187855, guid: fa1a28deaea064248aef603a21a002f9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742865961744458264, guid: fa1a28deaea064248aef603a21a002f9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

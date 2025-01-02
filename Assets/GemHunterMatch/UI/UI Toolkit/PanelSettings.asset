@@ -27,7 +27,7 @@ MonoBehaviour:
   m_ScreenMatchMode: 0
   m_Match: 1
   m_SortingOrder: -32.42
-  m_TargetDisplay: 0
+  m_TargetDisplay: 7
   m_BindingLogLevel: 0
   m_ClearDepthStencil: 1
   m_ClearColor: 0

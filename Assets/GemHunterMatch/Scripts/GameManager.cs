@@ -247,7 +247,7 @@ namespace Match3
             if (Coins < 0)
                 Coins = 0;
         
-            UIHandler.Instance.UpdateTopBarData();
+           UIHandler.Instance.UpdateTopBarData();
         }
 
         public void WinStar()
@@ -259,7 +259,7 @@ namespace Match3
         {
             Lives += amount;
         }
-
+        
         public void LoseLife()
         {
             Lives -= 1;

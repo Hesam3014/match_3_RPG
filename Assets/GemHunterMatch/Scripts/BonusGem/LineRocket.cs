@@ -108,7 +108,7 @@ namespace Match3
                     else if (!content.ContainingGem.Damage(1))
                     {
                         GameManager.Instance.Board.DestroyGem(m_CurrentCell, true);
-                        
+                        Debug.Log("asdadsd");
                     }
                 }
 

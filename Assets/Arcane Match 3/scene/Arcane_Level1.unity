@@ -3309,9 +3309,11 @@ MonoBehaviour:
   EnemyBar:
   - {fileID: 1842602147}
   - {fileID: 703930004}
+  - {fileID: 1784604459}
   EnemyPos:
   - {fileID: 1322180337}
   - {fileID: 525024289}
+  - {fileID: 1795505354}
   VisualBomb:
   - {fileID: 3077343761403282166, guid: f78aaaec3b393e24ca74cd6de8194347, type: 3}
   - {fileID: 5162910912013668194, guid: cf82839c411151342a7b2337bda9fb34, type: 3}

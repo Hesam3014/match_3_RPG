@@ -20,13 +20,7 @@ public class EnemyManager : MonoBehaviour
         for (int i = 0; i < EnemyBar.Count; i++)
         {
            EnemyBar[i].GetComponent<Slider>().value -= 10;
-            if (EnemyBar[i].GetComponent <Slider>().value < 0)
-            {
-                Destroy(EnemyPos[i].gameObject,0.3f);
-                Destroy(EnemyBar[i],.2f);
-                EnemyBar.RemoveAt(i);
-
-            }
+           
 
             int a = Random.Range(0, VisualBomb.Count);
            GameObject Go =  Instantiate(VisualBomb[a],EnemyPos[i].position,Quaternion.identity);
@@ -36,6 +30,21 @@ public class EnemyManager : MonoBehaviour
 
             Destroy(Go, 1f);
             Destroy(Go2, 1f);
+
+            if (EnemyBar[i].GetComponent<Slider>().value <= 0)
+            {
+                // Destroy(EnemyPos[i].gameObject, 0.3f);
+                // Destroy(EnemyBar[i], .2f);
+                EnemyBar[i].SetActive(false);
+                EnemyPos[i].GetComponent<SpriteRenderer>().enabled = false;
+                EnemyBar.RemoveAt(i);
+                EnemyPos.RemoveAt(i);
+            }
+
+            if(EnemyBar.Count <0)
+            {
+                //Game is win now
+            }
 
         }
     }

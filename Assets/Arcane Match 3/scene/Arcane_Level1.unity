@@ -1994,9 +1994,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 372281754}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 120
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 120
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3153,6 +3153,7 @@ MonoBehaviour:
   Enemys: []
   PowerValue: 0
   powers: []
+  DesPref: {fileID: 2883328650289991035, guid: 5c9397b785a8d2a4a83581ccce169257, type: 3}
 --- !u!4 &1283080065
 Transform:
   m_ObjectHideFlags: 0
@@ -3771,7 +3772,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1691062602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4027,9 +4028,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1134298073}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 150
+  m_MaxValue: 30
   m_WholeNumbers: 0
-  m_Value: 150
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4205,9 +4206,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1195757597}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 2
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

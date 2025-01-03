@@ -46,6 +46,12 @@ public class LoadScene : MonoBehaviour
 
 
     }
+
+    public void lodingTest()
+    {
+        Level = PlayerPrefs.GetInt("Level", 0);
+        StartCoroutine(LoadingScene(Level));
+    }
     private void Update()
     {
         loadingImg.fillAmount = Mathf.Lerp(loadingImg.fillAmount, value, 0.1f);

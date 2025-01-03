@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [Header("Powers")]
     public List<Power> powers;
 
+    [SerializeField] GameObject DesPref;
    
     private void Awake()
     {
@@ -30,9 +31,11 @@ public class GameManager : MonoBehaviour
     public void nextLevel()
     {
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
-        SceneManager.LoadScene(PlayerPrefs.GetInt("Level",0));
+       // SceneManager.LoadScene(PlayerPrefs.GetInt("Level",0),LoadSceneMode.Single);
+        Instantiate(DesPref);
+
     }
-    
+
 }
 
     

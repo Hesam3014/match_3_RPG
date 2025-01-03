@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Arcane Match 3/scene/Arcane_Level1.unity
     guid: e648e375d168547928b20d5697f03cfb
   - enabled: 1
-    path: Assets/Arcane Match 3/scene/Arcane_Level12.unity
+    path: Assets/Arcane Match 3/scene/Arcane_Level2.unity
     guid: 9f4563148ec2f324aadeb07862ab07ef
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

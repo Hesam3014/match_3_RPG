@@ -1,5 +1,6 @@
  
-using System.Collections.Generic; 
+using System.Collections.Generic;
+using Match3;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,20 @@ public class GameManager : MonoBehaviour
         
 
     }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            NextLevel();
+        }
+    }
+
+    public void NextLevel()
+    {
+        UIHandler.Instance.ChangeLevel(1);
+    } 
+
     public void nextLevel()
     {
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);

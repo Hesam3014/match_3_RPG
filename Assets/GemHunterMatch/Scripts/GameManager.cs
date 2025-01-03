@@ -98,7 +98,7 @@ namespace Match3
             if (s_Instance == null)
             {
                 s_Instance = this;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
                 
                 Application.targetFrameRate = 60;
             
@@ -133,6 +133,14 @@ namespace Match3
         private void OnDestroy()
         {
             if (s_Instance == this) s_IsShuttingDown = true;
+        }
+
+        public void TurnOff()
+        {
+            if (s_Instance == this)
+            {
+                s_Instance = null;
+            }
         }
 
         void GetReferences()

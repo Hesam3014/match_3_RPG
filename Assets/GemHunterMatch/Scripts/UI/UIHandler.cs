@@ -318,6 +318,12 @@ namespace Match3
             ApplySafeArea(m_Document.rootVisualElement.Q<VisualElement>("FullContent"));
             ApplySafeArea(m_EndScreen);
         }
+
+        public void ChangeLevel(int LevelNumber)
+        {
+            SceneManager.LoadScene(LevelNumber, LoadSceneMode.Single);
+            GameManager.Instance.TurnOff();
+        }
     
         public void Init()
         {

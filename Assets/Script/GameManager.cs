@@ -1,7 +1,7 @@
  
 using System.Collections.Generic; 
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,9 +18,21 @@ public class GameManager : MonoBehaviour
    
     private void Awake()
     {
-        instance = this;
-    }
 
+        instance = this;
+
+    }
+    private void Start()
+    {
+        
+
+    }
+    public void nextLevel()
+    {
+        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("Level",0));
+    }
+    
 }
 
     

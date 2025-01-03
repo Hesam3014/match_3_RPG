@@ -340,8 +340,8 @@ namespace Match3
 
         public void WinTriggered()
         {
-            PlaySFX(Settings.SoundSettings.WinVoice);
-            m_WinEffect.gameObject.SetActive(true);
+          //  PlaySFX(Settings.SoundSettings.WinVoice);
+          //  m_WinEffect.gameObject.SetActive(true);
         }
 
         public void LooseTriggered()

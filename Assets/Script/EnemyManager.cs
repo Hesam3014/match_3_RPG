@@ -1,15 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
-
 using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
-    public List<GameObject> EnemyBar ;
-    public List<Transform> EnemyPos;
 
+    public List<GameObject> EnemyBar;
+    public List<Transform> EnemyPos;
     [SerializeField] List<GameObject >VisualBomb;
-    [SerializeField] GameObject VisualLight;
+    [SerializeField] List<GameObject> VisualLight;
+    int randomEffect;
+
+    [Header("Sounds")]
+    [SerializeField] private List<AudioClip> DamageEnemyClip;
+    [SerializeField] private List<AudioClip> DamageCharacterClip;
+
     private void Awake()
     {
         instance = this;
@@ -21,16 +26,17 @@ public class EnemyManager : MonoBehaviour
         {
            EnemyBar[i].GetComponent<Slider>().value -= 10;
            
-
+            // effect Damage
             int a = Random.Range(0, VisualBomb.Count);
-           GameObject Go =  Instantiate(VisualBomb[a],EnemyPos[i].position,Quaternion.identity);
+            GameObject Go =  Instantiate(VisualBomb[a],EnemyPos[i].position,Quaternion.identity);
 
-           
-            GameObject Go2= Instantiate(VisualLight, CellPos, Quaternion.Euler(0,0, -177));
+             randomEffect = Random.Range(0,VisualLight.Count);
+            GameObject Go2   = Instantiate(VisualLight[randomEffect], CellPos, Quaternion.Euler(0,0, -177));
 
             Destroy(Go, 1f);
             Destroy(Go2, 1f);
 
+            //Enemy Dead
             if (EnemyBar[i].GetComponent<Slider>().value <= 0)
             {
                 // Destroy(EnemyPos[i].gameObject, 0.3f);
@@ -41,11 +47,15 @@ public class EnemyManager : MonoBehaviour
                 EnemyPos.RemoveAt(i);
             }
 
-            if(EnemyBar.Count <0)
+            // Game Is WIn!
+            if(EnemyBar.Count <=0)
             {
-                //Game is win now
+                GameManager.instance.nextLevel();
             }
 
         }
+
+        // PlaySound 
+        SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
     }
 }

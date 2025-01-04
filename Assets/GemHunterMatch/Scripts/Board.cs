@@ -91,6 +91,8 @@ namespace Match3
 
         private AudioSource m_FallingSoundSource;
 
+
+        string gemtype;
         private enum SwapStage
         {
             None,
@@ -1289,6 +1291,7 @@ namespace Match3
                 List<Vector3> matchedPositions = new List<Vector3>();
                 foreach (var cell in lineList)
                 {
+                    gemtype = ""+CellContent[cell].ContainingGem;
                     if (m_MatchedCallback.TryGetValue(cell, out var clbk))
                         clbk.Invoke();
 
@@ -1298,26 +1301,28 @@ namespace Match3
                         matchedPositions.Add(CellContent[cell].ContainingGem.transform.position);
                     }
                 }
-
+                
                 foreach (var cell in temporaryShapeMatch)
                 {
+                   
+
                     if (m_MatchedCallback.TryGetValue(cell, out var clbk))
                         clbk.Invoke();
+                   
 
                     if (CellContent[cell].CanDelete())
                     {
                         finalMatch.AddGem(CellContent[cell].ContainingGem);
-
                         matchedPositions.Add(CellContent[cell].ContainingGem.transform.position);
                     }
                 }
                 foreach (var pos in matchedPositions)
                 {
-                    Debug.Log($"Matched Position: {pos}");
+                  //  Debug.Log($"Matched Position: {pos}");
                     
                 }
                 UIHandler.Instance.TriggerCharacterAnimation(UIHandler.CharacterAnimation.Match);
-                EnemyManager.instance.DamageEnemy(matchedPositions[0]);
+                EnemyManager.instance.DamageEnemy(matchedPositions[0], gemtype);
 
             }
 

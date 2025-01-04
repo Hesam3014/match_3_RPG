@@ -15,8 +15,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Powers")]
     public List<Power> powers;
-
-    [SerializeField] GameObject DesPref;
    
     private void Awake()
     {
@@ -24,33 +22,20 @@ public class GameManager : MonoBehaviour
         instance = this;
 
     }
-    private void Start()
-    {
-        
-
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(1))
-        {
-            NextLevel();
-        }
-    }
-
-    public void NextLevel()
-    {
-        UIHandler.Instance.ChangeLevel(1);
-    } 
+   
 
     public void nextLevel()
     {
+        // next scene
+        Invoke("Do", 1f);
         PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
-       // SceneManager.LoadScene(PlayerPrefs.GetInt("Level",0),LoadSceneMode.Single);
-        Instantiate(DesPref);
+       
 
     }
-
+    void Do()
+    {
+        UIHandler.Instance.ChangeLevel(PlayerPrefs.GetInt("Level", 0));
+    }
 }
 
     

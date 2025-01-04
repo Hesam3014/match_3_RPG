@@ -328,11 +328,12 @@ namespace Match3
             if(existingItem == null) return;
         
             existingItem.Item.Use(cell);
-            existingItem.Amount -= 1;
-            
-            m_BonusModePrefab?.SetActive(false);
-            UIHandler.Instance.UpdateBottomBar();
-            UIHandler.Instance.DeselectBonusItem();
+            //existingItem.Amount -= 1;
+            LevelData.Instance.DarkenBackground(item == null);
+
+            //m_BonusModePrefab?.SetActive(false);
+            //UIHandler.Instance.UpdateBottomBar();
+            //UIHandler.Instance.DeselectBonusItem();
         }
 
         public AudioSource PlaySFX(AudioClip clip)

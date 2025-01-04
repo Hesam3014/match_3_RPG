@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -666,6 +668,12 @@ namespace Match3
             }
             
             UpdateBottomBar();
+        }
+
+        public void SelectPower(int NumberPower)
+        {
+            GameManager.Instance.ActivateBonusItem(GameManager.Instance.BonusItems[NumberPower].Item);
+
         }
 
         public void UpdateBottomBar()

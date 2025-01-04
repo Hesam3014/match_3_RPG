@@ -22,7 +22,14 @@ public class GameManager : MonoBehaviour
         instance = this;
 
     }
-   
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            UIHandler.Instance.SelectPower(2);
+        }
+    }
 
     public void nextLevel()
     {

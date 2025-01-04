@@ -18,7 +18,9 @@ public class LoadScene : MonoBehaviour
     private void Start()
     {
         Level = PlayerPrefs.GetInt("Level", 0);
-        LoadingScene();
+        //   LoadingScene();
+        SceneManager.LoadScene(PlayerPrefs.GetInt("Level", 0));
+
     }
     void makesingleton()
     {
@@ -30,8 +32,10 @@ public class LoadScene : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+           
         }
         // DontDestroyOnLoad(gameObject);
+       // SceneManager.LoadScene(PlayerPrefs.GetInt("Level", 0));
     }
 
     public void LoadingScene()
@@ -54,15 +58,15 @@ public class LoadScene : MonoBehaviour
     }
     private void Update()
     {
-        loadingImg.fillAmount = Mathf.Lerp(loadingImg.fillAmount, value, 0.1f);
-        if (loadingImg.fillAmount == 1f)
-        {
-            if (operation.isDone)
-            {
-                Invoke("Done", 0.5f);
+        //loadingImg.fillAmount = Mathf.Lerp(loadingImg.fillAmount, value, 0.1f);
+        //if (loadingImg.fillAmount == 1f)
+        //{
+        //    if (operation.isDone)
+        //    {
+        //        Invoke("Done", 0.5f);
 
-            }
-        }
+        //    }
+        //}
 
        
     }

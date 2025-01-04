@@ -24,7 +24,7 @@ public class TestUi : MonoBehaviour
 
             Destroy(GameObject.Find("GameManager(Clone)"));
 
-            GameObject.Find("Loading").GetComponent<LoadScene>().lodingTest();
+           // GameObject.Find("Loading").GetComponent<LoadScene>().lodingTest();
         }
         // DontDestroyOnLoad(gameObject);
     }

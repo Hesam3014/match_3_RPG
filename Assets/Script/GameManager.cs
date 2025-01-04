@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
-            UIHandler.Instance.SelectPower(2);
+            UIHandler.Instance.SelectPower(3);
         }
     }
 

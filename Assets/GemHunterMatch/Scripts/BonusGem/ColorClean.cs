@@ -91,6 +91,10 @@ namespace Match3
                         var pos = content.ContainingGem.transform.position;
                         infoColor[currentColor] = new Color(pos.x, pos.y, pos.z);
                         currentColor++;
+
+                        Debug.Log("asdadsd");
+                        EnemyManager.instance.DamageEnemy(pos, "Null");
+                        
                     }
                 }
             }

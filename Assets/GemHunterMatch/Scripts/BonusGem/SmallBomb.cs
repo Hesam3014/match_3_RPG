@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 namespace Match3
 {
@@ -43,6 +44,9 @@ namespace Match3
                     content.ContainingGem != null)
                 {
                     HandleContent(content, newMatch);
+                    EnemyManager.instance.DamageEnemy(idx, "Null");
+                    Debug.Log("asdadsd");
+
                 }
             }
         }

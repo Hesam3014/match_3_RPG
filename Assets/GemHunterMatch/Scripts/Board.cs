@@ -30,7 +30,7 @@ namespace Match3
             public Vector3Int Direction;
         }
 
-        private static Board s_Instance;
+        public static Board s_Instance;
 
         public List<Vector3Int> SpawnerPosition = new();
         public Dictionary<Vector3Int, BoardCell> CellContent = new();

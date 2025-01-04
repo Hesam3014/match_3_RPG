@@ -48,6 +48,8 @@ namespace Match3
                 //before that happen, this ensure the vfx will get instantiated first 
                 GameManager.Instance.PoolSystem.AddNewInstance(effectPrefab, 8);
                 GameManager.Instance.PoolSystem.PlayInstanceAt(effectPrefab, position);
+
+                print("sdasd");
             }
         }
     }

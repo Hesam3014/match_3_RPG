@@ -1,5 +1,6 @@
 using Match3;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 namespace Match3
 {
@@ -108,6 +109,7 @@ namespace Match3
                     else if (!content.ContainingGem.Damage(1))
                     {
                         GameManager.Instance.Board.DestroyGem(m_CurrentCell, true);
+                        EnemyManager.instance.DamageEnemy(cell, "Null");
                         Debug.Log("asdadsd");
                     }
                 }

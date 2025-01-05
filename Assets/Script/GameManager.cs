@@ -15,7 +15,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Powers")]
     public List<Power> powers;
-   
+
+
+    bool nextScene;
     private void Awake()
     {
 
@@ -33,9 +35,14 @@ public class GameManager : MonoBehaviour
 
     public void nextLevel()
     {
-        // next scene
-        Invoke("Do", 1f);
-        PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
+        if (!nextScene)
+        {
+            // next scene
+            Invoke("Do", 1f);
+            PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
+            nextScene = true;
+        }
+       
        
 
     }

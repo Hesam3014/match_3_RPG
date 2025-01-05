@@ -59,6 +59,8 @@ public class EnemyManager : MonoBehaviour
                 {
                     GameManager.instance.nextLevel();
                 }
+                // PlaySound 
+                SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
 
             }
         }
@@ -81,6 +83,9 @@ public class EnemyManager : MonoBehaviour
                     Destroy(Go2, 1f);
                     EnemyBar[1].GetComponent<Slider>().value -= 10;
 
+                    // PlaySound 
+                    SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
+
                 }
 
             }
@@ -99,15 +104,19 @@ public class EnemyManager : MonoBehaviour
                 Destroy(Go, 1f);
                 Destroy(Go2, 1f);
 
+                // PlaySound 
+                SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
+
                 // win the game
                 if (EnemyBar[0].GetComponent<Slider>().value <=0)
                     GameManager.instance.nextLevel();
+
+
             }
         }
 
       
 
-        // PlaySound 
-        SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
+       
     }
 }

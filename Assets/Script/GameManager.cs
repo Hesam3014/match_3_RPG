@@ -38,8 +38,12 @@ public class GameManager : MonoBehaviour
         if (!nextScene)
         {
             // next scene
-            Invoke("Do", 1f);
+            Invoke("Do", 6f);
             PlayerPrefs.SetInt("Level", PlayerPrefs.GetInt("Level", 0) + 1);
+
+
+            UIHandler.Instance.turnOnVfx();
+
             nextScene = true;
         }
        

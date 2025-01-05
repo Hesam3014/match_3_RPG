@@ -324,9 +324,14 @@ namespace Match3
         public void ChangeLevel(int LevelNumber)
         {
             SceneManager.LoadScene(LevelNumber, LoadSceneMode.Single);
+           
             GameManager.Instance.TurnOff();
         }
-    
+        public void turnOnVfx()
+        {
+            GameManager.Instance.PlaySFX(GameManager.Instance.Settings.SoundSettings.WinVoice);
+            GameManager.Instance.m_WinEffect.gameObject.SetActive(true);
+        }
         public void Init()
         {
             m_LevelName.text = LevelData.Instance.LevelName;

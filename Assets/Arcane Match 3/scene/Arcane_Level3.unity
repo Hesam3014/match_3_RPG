@@ -2009,9 +2009,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 372281754}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 110
+  m_MaxValue: 130
   m_WholeNumbers: 0
-  m_Value: 110
+  m_Value: 130
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

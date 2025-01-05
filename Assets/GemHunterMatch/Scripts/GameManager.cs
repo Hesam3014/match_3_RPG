@@ -83,7 +83,7 @@ namespace Match3
 
         private GameObject m_BonusModePrefab;
     
-        private VisualEffect m_WinEffect;
+        public VisualEffect m_WinEffect;
         private VisualEffect m_LoseEffect;
         
         private SoundData m_SoundData = new();
@@ -355,8 +355,8 @@ namespace Match3
 
         public void LooseTriggered()
         {
-            PlaySFX(Settings.SoundSettings.LooseVoice);
-            m_LoseEffect.gameObject.SetActive(true);
+           // PlaySFX(Settings.SoundSettings.LooseVoice);
+           // m_LoseEffect.gameObject.SetActive(true);
         }
 
         void SwitchMusic(AudioClip music)

@@ -3554,6 +3554,11 @@ MonoBehaviour:
   DamageEnemyClip:
   - {fileID: 8300000, guid: 239b3dffd9088fc4e9de6eda8ceaa0ae, type: 3}
   DamageCharacterClip: []
+  VoisCharacterClip:
+  - {fileID: 8300000, guid: f75346a7372607548a15934becf23b53, type: 3}
+  - {fileID: 8300000, guid: ba3932ca37a0ee742a000ca729b952be, type: 3}
+  - {fileID: 8300000, guid: c167aed4d2fd59243a5c53283baf1775, type: 3}
+  - {fileID: 8300000, guid: 5c91379a16b94f743b87198d2fe1c6cc, type: 3}
   Visual_Enemy:
   - {fileID: 1322180336}
   - {fileID: 525024288}
@@ -3563,6 +3568,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  Boss: 0
 --- !u!4 &1611031109
 Transform:
   m_ObjectHideFlags: 0
@@ -4121,26 +4127,20 @@ MonoBehaviour:
   CharacterImage: {fileID: 1368681829}
   DialogueText: {fileID: 1997437511}
   CurrentLevel: 0
-  CurrentLevel_Sentece: 0
+  CurrentLevel_Sentence: 0
   Levels:
   - dialogue:
-      CharacterImage: {fileID: 5628098254697780254, guid: f9dce7b8c23e4244cb7917f89b7d55a4, type: 3}
       CharacterName: Silco
-      Sentence:
-      - Ahhhh
-      - Who do they think they are
-      - 'they will pay '
-      - 'Finish The Job
-
-'
+      Sentences: []
+      CharacterImages: []
   - dialogue:
-      CharacterImage: {fileID: 0}
       CharacterName: 
-      Sentence: []
+      Sentences: []
+      CharacterImages: []
   - dialogue:
-      CharacterImage: {fileID: 0}
       CharacterName: 
-      Sentence: []
+      Sentences: []
+      CharacterImages: []
 --- !u!1 &1954289508
 GameObject:
   m_ObjectHideFlags: 0

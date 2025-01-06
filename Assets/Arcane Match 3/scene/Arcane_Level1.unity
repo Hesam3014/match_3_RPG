@@ -3684,6 +3684,11 @@ MonoBehaviour:
   DamageEnemyClip:
   - {fileID: 8300000, guid: 239b3dffd9088fc4e9de6eda8ceaa0ae, type: 3}
   DamageCharacterClip: []
+  VoisCharacterClip:
+  - {fileID: 8300000, guid: f75346a7372607548a15934becf23b53, type: 3}
+  - {fileID: 8300000, guid: ba3932ca37a0ee742a000ca729b952be, type: 3}
+  - {fileID: 8300000, guid: c167aed4d2fd59243a5c53283baf1775, type: 3}
+  - {fileID: 8300000, guid: 5c91379a16b94f743b87198d2fe1c6cc, type: 3}
   Visual_Enemy:
   - {fileID: 1322180336}
   - {fileID: 525024288}

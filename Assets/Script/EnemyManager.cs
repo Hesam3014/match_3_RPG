@@ -18,6 +18,8 @@ public class EnemyManager : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private List<AudioClip> DamageEnemyClip;
     [SerializeField] private List<AudioClip> DamageCharacterClip;
+    [SerializeField] private List<AudioClip> VoisCharacterClip;
+    [SerializeField] private bool PlayVois;
 
     [Header("Visual_Enemy")]
     [SerializeField] private List<GameObject> Visual_Enemy;
@@ -83,6 +85,13 @@ public class EnemyManager : MonoBehaviour
                 // PlaySound 
                 SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
 
+                if (!PlayVois)
+                {
+                    SoundManager.instance.PlaySound(VoisCharacterClip[Random.Range(0, VoisCharacterClip.Count)], 0.7f);
+                    PlayVois = true;
+                    Invoke("Interruption", 2);
+                }
+
             }
         }
         else
@@ -108,6 +117,13 @@ public class EnemyManager : MonoBehaviour
 
                     // PlaySound 
                     SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
+                    if (!PlayVois)
+                    {
+                        SoundManager.instance.PlaySound(VoisCharacterClip[Random.Range(0, VoisCharacterClip.Count)], 0.7f);
+                        PlayVois = true;
+                        Invoke("Interruption", 2);
+                    }
+
 
                 }
 
@@ -131,6 +147,13 @@ public class EnemyManager : MonoBehaviour
 
                 // PlaySound 
                 SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
+                if (!PlayVois)
+                {
+                    SoundManager.instance.PlaySound(VoisCharacterClip[Random.Range(0, VoisCharacterClip.Count)], 0.7f);
+                    PlayVois = true;
+                    Invoke("Interruption", 2);
+                }
+
 
                 // win the game
                 if (EnemyBar[0].GetComponent<Slider>().value <=0)
@@ -157,5 +180,10 @@ public class EnemyManager : MonoBehaviour
         {
             Enemy.transform.localScale = EnemySiza[Count];   
         });
+    }
+
+    public void Interruption()
+    {
+        PlayVois = false;
     }
 }

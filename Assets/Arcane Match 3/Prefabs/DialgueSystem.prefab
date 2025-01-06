@@ -295,26 +295,28 @@ MonoBehaviour:
   CharacterImage: {fileID: 6531713501146210150}
   DialogueText: {fileID: 8184345977439578885}
   CurrentLevel: 0
-  CurrentLevel_Sentece: 0
+  CurrentLevel_Sentence: 0
   Levels:
   - dialogue:
-      CharacterImage: {fileID: 5628098254697780254, guid: f9dce7b8c23e4244cb7917f89b7d55a4, type: 3}
-      CharacterName: Silco
-      Sentence:
+      CharacterName: silko
+      Sentences:
       - Ahhhh
-      - Who do they think they are
-      - 'they will pay '
-      - 'Finish The Job
-
-'
+      - Who do htey think they are
+      - they will pay
+      - Finish the Job
+      CharacterImages:
+      - {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+      - {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+      - {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+      - {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
   - dialogue:
-      CharacterImage: {fileID: 0}
-      CharacterName: 
-      Sentence: []
+      CharacterName: Silco
+      Sentences: []
+      CharacterImages: []
   - dialogue:
-      CharacterImage: {fileID: 0}
       CharacterName: 
-      Sentence: []
+      Sentences: []
+      CharacterImages: []
 --- !u!1 &7642934113150971131
 GameObject:
   m_ObjectHideFlags: 0

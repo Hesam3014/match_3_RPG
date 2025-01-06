@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
+
 public class EnemyManager : MonoBehaviour
 {
     public static EnemyManager instance;
@@ -16,9 +19,25 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<AudioClip> DamageEnemyClip;
     [SerializeField] private List<AudioClip> DamageCharacterClip;
 
+    [Header("Visual_Enemy")]
+    [SerializeField] private List<GameObject> Visual_Enemy;
+    [SerializeField] public List<Vector3> EnemySiza;
+    [SerializeField] public bool Boss;
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        if (!Boss)
+        {
+            for (int i = 0; i < EnemyBar.Count; i++)
+            {
+                EnemySiza[i] = Visual_Enemy[i].transform.localScale;
+            }
+        }
     }
 
     public void DamageEnemy(Vector3 CellPos, string GemType)
@@ -31,6 +50,8 @@ public class EnemyManager : MonoBehaviour
 
 
                 EnemyBar[i].GetComponent<Slider>().value -= 10;
+                // Visual_Enemy[i].gameObject.transform.DOPunchScale(new Vector3(Visual_Enemy[i].transform.position.x + 0.001f, Visual_Enemy[i].transform.position.y + 0.001f), 0.3f);
+                ShackingEnemy(Visual_Enemy[i], i);
 
 
                 // effect Damage
@@ -83,6 +104,8 @@ public class EnemyManager : MonoBehaviour
                     Destroy(Go2, 1f);
                     EnemyBar[1].GetComponent<Slider>().value -= 10;
 
+                    ShackingEnemy(Visual_Enemy[1], 1);
+
                     // PlaySound 
                     SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);
 
@@ -94,6 +117,8 @@ public class EnemyManager : MonoBehaviour
                 // Damage Enemy
                 EnemyBar[1].gameObject.SetActive(false);
                 EnemyBar[0].GetComponent<Slider>().value -= 10;
+
+                ShackingEnemy(Visual_Enemy[0], 0);
 
                 int a = Random.Range(0, VisualBomb.Count);
                 GameObject Go = Instantiate(VisualBomb[a], EnemyPos[0].position, Quaternion.identity);
@@ -119,5 +144,18 @@ public class EnemyManager : MonoBehaviour
     public void PowerValue()
     {
         GameManager.instance.Value += 1;
+    }
+
+    private void ShackingEnemy(GameObject Enemy, int Count)
+    {
+        const float duration = 0.3f;
+        const float strength = 0.3f;
+
+        Enemy.transform.DOKill();
+
+        Enemy.transform.DOShakeScale(duration, strength).OnComplete(() =>
+        {
+            Enemy.transform.localScale = EnemySiza[Count];   
+        });
     }
 }

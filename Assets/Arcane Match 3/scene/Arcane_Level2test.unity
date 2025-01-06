@@ -3554,6 +3554,15 @@ MonoBehaviour:
   DamageEnemyClip:
   - {fileID: 8300000, guid: 239b3dffd9088fc4e9de6eda8ceaa0ae, type: 3}
   DamageCharacterClip: []
+  Visual_Enemy:
+  - {fileID: 1322180336}
+  - {fileID: 525024288}
+  - {fileID: 1795505353}
+  EnemySiza:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 0}
 --- !u!4 &1611031109
 Transform:
   m_ObjectHideFlags: 0

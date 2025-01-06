@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using Match3;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static Match3.Board;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +17,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Powers")]
     public List<Power> powers;
-
+    public List<Button> PowersBtn;
+    public int Value;
 
     bool nextScene;
     private void Awake()
@@ -27,10 +30,35 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Value >= 3)
         {
-            UIHandler.Instance.SelectPower(3);
+            PowersBtn[Random.Range(0, 4)].interactable = true;
+            Value = 0;
         }
+    }
+
+    public void Power1()
+    {
+        UIHandler.Instance.SelectPower(0);
+        PowersBtn[0].interactable = false;
+    }
+
+    public void Power2()
+    {
+        UIHandler.Instance.SelectPower(1);
+        PowersBtn[1].interactable = false;
+    }
+
+    public void Power3()
+    {
+        UIHandler.Instance.SelectPower(2);
+        PowersBtn[2].interactable = false;
+    }
+
+    public void Power4()
+    {
+        UIHandler.Instance.SelectPower(3);
+        PowersBtn[3].interactable = false;
     }
 
     public void nextLevel()

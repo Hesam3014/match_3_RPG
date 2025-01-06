@@ -114,9 +114,10 @@ public class EnemyManager : MonoBehaviour
 
             }
         }
+    }
 
-      
-
-       
+    public void PowerValue()
+    {
+        GameManager.instance.Value += 1;
     }
 }

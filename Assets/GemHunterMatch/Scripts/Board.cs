@@ -10,13 +10,13 @@ using UnityEngine.Tilemaps;
 using UnityEngine.VFX;
 using Random = UnityEngine.Random;
 
+
 namespace Match3
 {
     [DefaultExecutionOrder(-9999)]
     public class Board : MonoBehaviour
     {
 
-        
         //Board hold a list of BoardAction that get ticked on its Update. Useful for Bonus to add timed effects and the like.
         public interface IBoardAction
         {
@@ -124,6 +124,7 @@ namespace Match3
             tilemap.RefreshAllTiles();
         }
 #endif
+
         }
 
         private void OnDestroy()
@@ -1285,7 +1286,9 @@ namespace Match3
             if (createMatch)
             {
                 Debug.Log("test");
- 
+
+                EnemyManager.instance.PowerValue();
+
                 var finalMatch = CreateCustomMatch(startCell);
                 finalMatch.SpawnedBonus = matchedBonusGem.Count == 0 ? null : matchedBonusGem[Random.Range(0, matchedBonusGem.Count)];
                 List<Vector3> matchedPositions = new List<Vector3>();

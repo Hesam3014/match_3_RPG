@@ -3690,34 +3690,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1283080064}
-    - target: {fileID: 3496287515829163530, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Power3
-      objectReference: {fileID: 0}
     - target: {fileID: 3877063062798173189, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1283080064}
-    - target: {fileID: 3877063062798173189, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Power4
-      objectReference: {fileID: 0}
     - target: {fileID: 4121929678083092728, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1283080064}
-    - target: {fileID: 4121929678083092728, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Power2
-      objectReference: {fileID: 0}
     - target: {fileID: 4855206055567584077, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1283080064}
-    - target: {fileID: 4855206055567584077, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Power1
-      objectReference: {fileID: 0}
     - target: {fileID: 6832436554432205291, guid: ecd0e7f5678d4d340bbeb28be5c7c8d8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3937,6 +3921,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+  Boss: 0
 --- !u!4 &1611031109
 Transform:
   m_ObjectHideFlags: 0

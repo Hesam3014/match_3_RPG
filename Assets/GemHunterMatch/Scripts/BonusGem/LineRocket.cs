@@ -1,6 +1,6 @@
 using Match3;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
+
 
 namespace Match3
 {

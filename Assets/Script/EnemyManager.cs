@@ -113,7 +113,7 @@ public class EnemyManager : MonoBehaviour
                     Destroy(Go2, 1f);
                     EnemyBar[1].GetComponent<Slider>().value -= 10;
 
-                    ShackingEnemy(Visual_Enemy[1], 1);
+                   // ShackingEnemy(Visual_Enemy[1], 1);
 
                     // PlaySound 
                     SoundManager.instance.PlaySound(DamageEnemyClip[randomEffect], 0.7f);

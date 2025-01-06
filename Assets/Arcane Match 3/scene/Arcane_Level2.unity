@@ -2106,6 +2106,283 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 632896825}
   m_CullTransparentMesh: 1
+--- !u!1001 &647886599
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0479437
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4560366
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.78611135
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386691693726766636, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: StartDeley
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: CurrentLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: CurrentLevel_Sentece
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[0].dialogue.CharacterName
+      value: hexcore
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[1].dialogue.CharacterName
+      value: Silco
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[0].dialogue.CharacterImage
+      value: 
+      objectReference: {fileID: 7872916524593235049, guid: d7143997a98aa9448b6ce4c33139829d, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[1].dialogue.CharacterImage
+      value: 
+      objectReference: {fileID: 5628098254697780254, guid: f9dce7b8c23e4244cb7917f89b7d55a4, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[0].dialogue.Sentence.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[1].dialogue.Sentence.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[0].dialogue.Sentences.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[1].dialogue.Sentences.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentence.Array.data[0]'
+      value: use hexcore to defeat him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentence.Array.data[1]'
+      value: ' he is a thread .'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentence.Array.data[2]'
+      value: destroy him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentence.Array.data[3]'
+      value: ' i see he has a shield .
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentence.Array.data[4]'
+      value: ' i see he has a shield .
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentence.Array.data[0]'
+      value: this guy is looking for you .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentence.Array.data[1]'
+      value: ' he is a thread .'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentence.Array.data[2]'
+      value: destroy him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentence.Array.data[3]'
+      value: ' i see he has a shield .
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentence.Array.data[4]'
+      value: ' i see he has a shield .
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentences.Array.data[0]'
+      value: this guy is looking for you .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentences.Array.data[1]'
+      value: he is a thread .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentences.Array.data[2]'
+      value: destroy him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentences.Array.data[3]'
+      value: I see he has a shield .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.Sentences.Array.data[4]'
+      value: use hexcore to defeat him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentences.Array.data[0]'
+      value: this guy is looking for you .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentences.Array.data[1]'
+      value: he is a thread .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentences.Array.data[2]'
+      value: destroy him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentences.Array.data[3]'
+      value: I see he has a shield .
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.Sentences.Array.data[4]'
+      value: use hexcore to defeat him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[0].dialogue.CharacterImages.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: Levels.Array.data[1].dialogue.CharacterImages.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.CharacterImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.CharacterImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.CharacterImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.CharacterImages.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[0].dialogue.CharacterImages.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7872916524593235049, guid: d7143997a98aa9448b6ce4c33139829d, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.CharacterImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.CharacterImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.CharacterImages.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.CharacterImages.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8336867757315542718, guid: 9f0c6f4f8f201dd499970036fb531e60, type: 3}
+    - target: {fileID: 4972538408148314924, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: 'Levels.Array.data[1].dialogue.CharacterImages.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7872916524593235049, guid: d7143997a98aa9448b6ce4c33139829d, type: 3}
+    - target: {fileID: 7229828162585230892, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
+      propertyPath: m_Name
+      value: DialgueSystem (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 30dd8ca7f74bddc4eb2c4452c724265e, type: 3}
 --- !u!1 &703930004
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,31 +5263,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 388ce522fac865248b68ab65d0026ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartDeley: 1
+  StartDeley: 5
   DialogueGameObject: {fileID: 984180285}
   CharacterImage: {fileID: 1368681829}
   DialogueText: {fileID: 1997437511}
   CurrentLevel: 0
-  CurrentLevel_Sentece: 0
+  CurrentLevel_Sentence: 0
   Levels:
   - dialogue:
-      CharacterImage: {fileID: 5628098254697780254, guid: f9dce7b8c23e4244cb7917f89b7d55a4, type: 3}
       CharacterName: Silco
-      Sentence:
-      - Ahhhh
-      - Who do they think they are
-      - 'they will pay '
-      - 'Finish The Job
-
-'
+      Sentences: []
+      CharacterImages: []
   - dialogue:
-      CharacterImage: {fileID: 0}
       CharacterName: 
-      Sentence: []
+      Sentences: []
+      CharacterImages: []
   - dialogue:
-      CharacterImage: {fileID: 0}
       CharacterName: 
-      Sentence: []
+      Sentences: []
+      CharacterImages: []
 --- !u!1 &1954289508
 GameObject:
   m_ObjectHideFlags: 0
@@ -6317,6 +6588,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 2055290517}
   - {fileID: 1905109390}
+  - {fileID: 647886599}
   - {fileID: 1954289510}
   - {fileID: 2232633986011668112}
   - {fileID: 527522672}
